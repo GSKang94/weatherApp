@@ -1,20 +1,28 @@
 const getUserInput = () => {
-  let userInput = document.querySelector(".userInput").value;
-  document.querySelector(".submit").onclick = () => getWeather();
-  return { userInput };
+  const $ = (e) => document.querySelector(e);
+  let userInput = $(".userInput").value;
+  $(".submit").onclick = () => getWeather();
+  return { userInput, $ };
 };
+
 getUserInput();
 
 async function getWeather() {
-  const user = getUserInput();
+  const { userInput } = getUserInput();
   let apiKey = "fce51865df10c606b4200dd86db4fdd5";
-  let weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${user.userInput}&appid=${apiKey}&units=metric`;
+  let weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${apiKey}&units=metric`;
   let response = await fetch(weatherApi);
   let data = await response.json();
   return displayWeather(data);
 }
 
 function displayWeather(data) {
-  let display = document.querySelector("#display");
-  console.log(data);
+  const { $ } = getUserInput();
+  const weatherIcon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
+  $(".description").textContent = data.weather[0].description;
+  $(".icon").src = weatherIcon;
+  $(".temp").textContent = `Temp: ${data.main.temp}\xB0 C`;
+  $(".feelsLike").textContent = `Feels like: ${data.main.feels_like}\xB0 C`;
+  $(".humidity").textContent = `Humidity: ${data.main.humidity}%`;
 }

@@ -7,10 +7,18 @@
   <body>
     <main>
       <form onsubmit="return false">
-        <input class="userInput" type="text" required />
+        <input value="winnipeg" class="userInput" type="text" required />
         <button class="submit" type="submit">submit</button>
       </form>
-      <div id="display"></div>
+
+      <div id="display">
+        <div class="description"></div>
+        <img class="icon" src="" alt="" />
+        <div class="temp"></div>
+        <div class="feelsLike"></div>
+        <div class="wind"></div>
+        <div class="humidity"></div>
+      </div>
     </main>
 
     <script src="index.js"></script>
