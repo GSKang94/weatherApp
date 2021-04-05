@@ -1,14 +1,15 @@
 const getUserInput = () => {
   const $ = (e) => document.querySelector(e);
-  let userInput = $(".userInput").value;
-  $(".submit").onclick = () => getWeather();
-  return { userInput, $ };
+  !$(".userInput").value ? getWeather("winnipeg") : null; // Default starting city
+  $(".submit").onclick = () => getWeather($(".userInput").value);
+  return { $ };
 };
 
 getUserInput();
 
-async function getWeather() {
-  const { userInput } = getUserInput();
+async function getWeather(userInput) {
+  // const { $ } = getUserInput();
+  // $("#display").classList.add("fadeIn");
   let apiKey = "fce51865df10c606b4200dd86db4fdd5";
   let weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${apiKey}&units=metric`;
   let response = await fetch(weatherApi);
