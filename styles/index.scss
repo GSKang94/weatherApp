@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #2b2e4a;
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  h1 {
+    margin-bottom: 2rem;
+  }
+}
+
+form {
+  input,
+  .submit {
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+#display {
+  #top-section {
+    display: flex;
+    align-items: center;
+  }
+  font-size: 1.5rem;
+}

@@ -2,18 +2,28 @@
 <html lang="en">
   <head>
     <title>weatherApp</title>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
   </head>
   <body>
     <main>
+      <h1>Weather App</h1>
       <form onsubmit="return false">
-        <input value="winnipeg" class="userInput" type="text" required />
+        <input
+          value="winnipeg"
+          class="userInput"
+          type="text"
+          placeholder="location"
+          required
+        />
         <button class="submit" type="submit">submit</button>
       </form>
 
       <div id="display">
-        <div class="description"></div>
-        <img class="icon" src="" alt="" />
+        <div id="top-section">
+          <div class="description"></div>
+          <img class="icon" src="" alt="" />
+        </div>
+
         <div class="temp"></div>
         <div class="feelsLike"></div>
         <div class="wind"></div>
